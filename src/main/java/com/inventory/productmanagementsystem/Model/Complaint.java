@@ -1,11 +1,21 @@
 package com.inventory.productmanagementsystem.Model;
 
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-
+@Entity(name = "complaint")
+@Table(name = "complaint")
 public class Complaint {
+    @Id
+    @SequenceGenerator(name = "complaint_sequence", sequenceName = "complaint_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "complaint_sequence")
+    @Column(name = "id")
     private Long id;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "content")
     private String content;
     private User customer;
 
