@@ -1,5 +1,7 @@
 package com.inventory.productmanagementsystem.Model;
 
+import java.util.List;
+
 public class User {
     private Long id;
     private String name;
@@ -8,20 +10,22 @@ public class User {
     private String password;
     private String address;
     private Integer role;   // 0 -> Admin, 1 -> Customer
+    private List<Complaint> complaintList;
 
     public User() {
     }
 
-    public User(String name, Long mobileNumber, String email, String password, String address, Integer role) {
+    public User(String name, Long mobileNumber, String email, String password, String address, Integer role, List<Complaint> complaintList) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.email = email;
         this.password = password;
         this.address = address;
         this.role = role;
+        this.complaintList = complaintList;
     }
 
-    public User(Long id, String name, Long mobileNumber, String email, String password, String address, Integer role) {
+    public User(Long id, String name, Long mobileNumber, String email, String password, String address, Integer role, List<Complaint> complaintList) {
         this.id = id;
         this.name = name;
         this.mobileNumber = mobileNumber;
@@ -29,6 +33,7 @@ public class User {
         this.password = password;
         this.address = address;
         this.role = role;
+        this.complaintList = complaintList;
     }
 
     public Long getId() {
@@ -87,16 +92,25 @@ public class User {
         this.role = role;
     }
 
+    public List<Complaint> getComplaintList() {
+        return complaintList;
+    }
+
+    public void setComplaintList(List<Complaint> complaintList) {
+        this.complaintList = complaintList;
+    }
+
     @Override
     public String toString() {
-        return "User {" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", mobileNumber = " + mobileNumber +
-                ", email = '" + email + '\'' +
-                ", password = '" + password + '\'' +
-                ", address = '" + address + '\'' +
-                ", role = " + role +
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", role=" + role +
+                ", complaintList=" + complaintList +
                 '}';
     }
 }
