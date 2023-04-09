@@ -1,14 +1,28 @@
 package com.inventory.productmanagementsystem.Model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity(name = "user")
+@Table(name = "user")
 public class User {
+    @Id
+    @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "mobile_number")
     private Long mobileNumber;
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+    @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "address")
     private String address;
+    @Column(name = "role")
     private Integer role;   // 0 -> Admin, 1 -> Customer
     private List<Complaint> complaintList;
 
