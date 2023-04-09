@@ -6,8 +6,8 @@ public class Product {
     private Long id;
     private String name;
     private String description;
-    private long price;
-    private long quantity;
+    private Double price;
+    private Long quantity;
     private List<Order> orderList;
     private ProductCategory productCategory;
 
@@ -15,8 +15,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String name, String description, long price, long quantity, List<Order> orderList, ProductCategory productCategory) {
-        this.id = id;
+    public Product(String name, String description, Double price, Long quantity, List<Order> orderList, ProductCategory productCategory) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -25,7 +24,8 @@ public class Product {
         this.productCategory = productCategory;
     }
 
-    public Product(String name, String description, long price, long quantity, List<Order> orderList, ProductCategory productCategory) {
+    public Product(Long id, String name, String description, Double price, Long quantity, List<Order> orderList, ProductCategory productCategory) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -58,19 +58,19 @@ public class Product {
         this.description = description;
     }
 
-    public long getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public long getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(long quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
