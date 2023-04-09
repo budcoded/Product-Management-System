@@ -1,14 +1,28 @@
 package com.inventory.productmanagementsystem.Model;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity(name = "product")
+@Table(name = "product")
 public class Product {
+    @Id
+    @SequenceGenerator(name = "product_sequence", sequenceName =  "product_sequence" , allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
+    @Column(name = "id")
     private Long id;
+    @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "description")
     private String description;
+    @Column(name = "price", nullable = false)
     private Double price;
+    @Column(name = "quantity")
     private Long quantity;
     private List<Order> orderList;
+    //@Column(name = "product_category")
+    @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
 
 

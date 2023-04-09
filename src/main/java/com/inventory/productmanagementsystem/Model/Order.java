@@ -1,12 +1,23 @@
 package com.inventory.productmanagementsystem.Model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity(name = "order")
+@Table(name = "order")
 public class Order {
+    @Id
+    @SequenceGenerator(name = "order_sequence", sequenceName =  "order_sequence" , allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_sequence")
+    @Column(name = "id")
     private Long id;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "total_price")
     private Double totalPrice;
+    @Column(name = "no_of_items")
     private Integer noOfItems;
     private List<Product> productList;
     private User customer;
