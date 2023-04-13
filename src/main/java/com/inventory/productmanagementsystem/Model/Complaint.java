@@ -1,38 +1,43 @@
 package com.inventory.productmanagementsystem.Model;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 @Entity(name = "complaint")
 @Table(name = "complaint")
 public class Complaint {
     @Id
-    @SequenceGenerator(name = "complaint_sequence", sequenceName = "complaint_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "complaint_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "created_at")
     private LocalDateTime createdAt;
     @Column(name = "content")
     private String content;
-    private User customer;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Complaint() {
     }
 
-    public Complaint(LocalDateTime createdAt, String content, User customer) {
+    public Complaint(LocalDateTime createdAt, String content) {
         this.createdAt = createdAt;
         this.content = content;
-        this.customer = customer;
     }
 
-    public Complaint(Long id, LocalDateTime createdAt, String content, User customer) {
+    public Complaint(LocalDateTime createdAt, String content, User user) {
+        this.createdAt = createdAt;
+        this.content = content;
+        this.user = user;
+    }
+
+    public Complaint(Long id, LocalDateTime createdAt, String content, User user) {
         this.id = id;
         this.createdAt = createdAt;
         this.content = content;
-        this.customer = customer;
+        this.user = user;
     }
 
     public Long getId() {
@@ -59,21 +64,21 @@ public class Complaint {
         this.content = content;
     }
 
-    public User getCustomer() {
-        return customer;
+    public User getUser() {
+        return user;
     }
 
-    public void setCustomer(User customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Complaint{" +
-                "id=" + id +
-                ", createdAt=" + createdAt +
-                ", content='" + content + '\'' +
-                ", customer=" + customer +
+        return "Complaint {" +
+                "id = " + id +
+                ", createdAt = " + createdAt +
+                ", content = '" + content + '\'' +
+                ", user = " + user +
                 '}';
     }
 }

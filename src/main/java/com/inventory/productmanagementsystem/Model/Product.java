@@ -2,14 +2,14 @@ package com.inventory.productmanagementsystem.Model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "product")
 @Table(name = "product")
 public class Product {
     @Id
-    @SequenceGenerator(name = "product_sequence", sequenceName =  "product_sequence" , allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false)
@@ -20,13 +20,17 @@ public class Product {
     private Double price;
     @Column(name = "quantity")
     private Long quantity;
-    private List<Order> orderList;
-    //@Column(name = "product_category")
+    @ManyToMany(mappedBy = "productList")
+    private List<Order> orderList = new ArrayList<>();
+    @Column(name = "product_category")
     @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
 
-
-    public Product() {
+    public Product(String name, String description, Double price, Long quantity) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public Product(String name, String description, Double price, Long quantity, List<Order> orderList, ProductCategory productCategory) {
@@ -102,5 +106,18 @@ public class Product {
 
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
+    }
+
+    @Override
+    public String toString() {
+        return "Product {" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", description = '" + description + '\'' +
+                ", price = " + price +
+                ", quantity = " + quantity +
+                ", orderList = " + orderList +
+                ", productCategory = " + productCategory +
+                '}';
     }
 }

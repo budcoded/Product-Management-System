@@ -2,14 +2,14 @@ package com.inventory.productmanagementsystem.Model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "user")
 @Table(name = "user")
 public class User {
     @Id
-    @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "name", nullable = false)
@@ -22,14 +22,19 @@ public class User {
     private String password;
     @Column(name = "address")
     private String address;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Integer role;   // 0 -> Admin, 1 -> Customer
-    private List<Complaint> complaintList;
+    private UserRole role;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Complaint> complaintList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    private List<Order> orderList = new ArrayList<>();
 
     public User() {
     }
 
-    public User(String name, Long mobileNumber, String email, String password, String address, Integer role, List<Complaint> complaintList) {
+    public User(String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.email = email;
@@ -37,9 +42,19 @@ public class User {
         this.address = address;
         this.role = role;
         this.complaintList = complaintList;
+        this.orderList = orderList;
     }
 
-    public User(Long id, String name, Long mobileNumber, String email, String password, String address, Integer role, List<Complaint> complaintList) {
+    public User(String name, Long mobileNumber, String email, String password, String address, UserRole role) {
+        this.name = name;
+        this.mobileNumber = mobileNumber;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.role = role;
+    }
+
+    public User(Long id, String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
         this.id = id;
         this.name = name;
         this.mobileNumber = mobileNumber;
@@ -48,6 +63,7 @@ public class User {
         this.address = address;
         this.role = role;
         this.complaintList = complaintList;
+        this.orderList = orderList;
     }
 
     public Long getId() {
@@ -98,11 +114,11 @@ public class User {
         this.address = address;
     }
 
-    public Integer getRole() {
+    public UserRole getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(UserRole role) {
         this.role = role;
     }
 
@@ -114,17 +130,26 @@ public class User {
         this.complaintList = complaintList;
     }
 
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", role=" + role +
-                ", complaintList=" + complaintList +
+        return "User {" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", mobileNumber = " + mobileNumber +
+                ", email = '" + email + '\'' +
+                ", password = '" + password + '\'' +
+                ", address = '" + address + '\'' +
+                ", role = " + role +
+                ", complaintList = " + complaintList +
+                ", orderList = " + orderList +
                 '}';
     }
 }
