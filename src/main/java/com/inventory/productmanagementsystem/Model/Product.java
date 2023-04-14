@@ -26,6 +26,9 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductCategory productCategory;
 
+    public Product() {
+    }
+
     public Product(String name, String description, Double price, Long quantity) {
         this.name = name;
         this.description = description;
