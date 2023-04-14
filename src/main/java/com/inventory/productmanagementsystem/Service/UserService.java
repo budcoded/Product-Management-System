@@ -86,51 +86,47 @@ package com.inventory.productmanagementsystem.Service;
 import com.inventory.productmanagementsystem.Exceptions.ResourceNotFoundException;
 import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public User createUser(User user) {
-        User savedUser = this.userRepository.save(user);
-        return savedUser;
+        return this.userRepository.save(user);
     }
 
     public User updateUser(User user, Long userId) {
-        User user1  = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User","Id", userId));
+        User user1 = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
         user1.setName(user.getName());
         user1.setEmail(user.getEmail());
         user1.setPassword(user.getPassword());
         user1.setMobileNumber(user.getMobileNumber());
         user1.setAddress(user.getAddress());
 
-        User updatedUser = this.userRepository.save(user1);
-        return updatedUser;
+        return this.userRepository.save(user1);
     }
 
 
     public User getUserById(Long userId) {
-        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User","Id",userId));
-        return user;
+        return this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
     }
 
     public List<User> getAllUsers() {
-        List<User> users = this.userRepository.findAll();
-        return users;
+        return this.userRepository.findAll();
     }
 
     public String deleteUser(Long userId) {
-        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User","Id",userId));
+        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
         this.userRepository.delete(user);
         return "User Deleted";
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.inventory.productmanagementsystem.Service;
 
-import com.inventory.productmanagementsystem.Model.Complaint;
 import com.inventory.productmanagementsystem.Model.Product;
 import com.inventory.productmanagementsystem.Repository.ProductRepository;
 import jakarta.transaction.Transactional;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -16,15 +14,15 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     @Autowired
-    public ProductService (ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts () {
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public ResponseEntity<String> addProduct (Product product) {
+    public ResponseEntity<String> addProduct(Product product) {
         Product savedProduct = productRepository.save(product);
         if (savedProduct.getName().equals(product.getName())) {
             return ResponseEntity.ok("Product Successfully Added.");
@@ -33,7 +31,7 @@ public class ProductService {
         }
     }
 
-    public ResponseEntity<String> deleteProduct (Long id) {
+    public ResponseEntity<String> deleteProduct(Long id) {
         if (!productRepository.existsById(id)) {
             return ResponseEntity.status(400).body("Product with id: " + id + " doesn't exist.");
         } else {
@@ -43,7 +41,7 @@ public class ProductService {
     }
 
     @Transactional
-    public ResponseEntity<String> updateProduct (Long productId, Product product) {
+    public ResponseEntity<String> updateProduct(Long productId, Product product) {
         Product updatedProduct = productRepository.findById(productId).orElseThrow(() -> new IllegalStateException("Product with id: " + productId + " doesn't exist."));
         updatedProduct.setName(product.getName());
         updatedProduct.setDescription(product.getDescription());
