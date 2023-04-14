@@ -126,9 +126,10 @@ public class UserService {
         return users;
     }
 
-    public void deleteUser(Long userId) {
+    public String deleteUser(Long userId) {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User","Id",userId));
         this.userRepository.delete(user);
+        return "User Deleted";
     }
 
 
