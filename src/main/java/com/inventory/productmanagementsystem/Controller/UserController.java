@@ -4,6 +4,7 @@ import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,5 +46,17 @@ public class UserController {
     @DeleteMapping("deleteUser/{id}")
     public String deleteUser(@PathVariable("id") Long userId) {
         return userService.deleteUser(userId);
+    }
+
+    @GetMapping("login")
+    public Object userLogin (@RequestParam(name = "email") String email, @RequestParam(name = "password") String password) {
+        ResponseEntity<User> userResponseEntity = userService.loginUser(email, password);
+        if (userResponseEntity.getStatusCode() == HttpStatusCode.valueOf(401)) {
+            return "Please enter correct password.";
+        } else if (userResponseEntity.getStatusCode() == HttpStatusCode.valueOf(400)) {
+            return "Email doesn't exist.";
+        } else {
+            return userResponseEntity;
+        }
     }
 }

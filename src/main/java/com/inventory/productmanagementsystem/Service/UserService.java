@@ -87,9 +87,12 @@ import com.inventory.productmanagementsystem.Exceptions.ResourceNotFoundExceptio
 import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -111,10 +114,8 @@ public class UserService {
         user1.setPassword(user.getPassword());
         user1.setMobileNumber(user.getMobileNumber());
         user1.setAddress(user.getAddress());
-
         return this.userRepository.save(user1);
     }
-
 
     public User getUserById(Long userId) {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
@@ -146,5 +147,26 @@ public class UserService {
         User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
         this.userRepository.delete(user);
         return "User Deleted";
+    }
+
+    public ResponseEntity<User> loginUser(String email, String password) {
+        Optional<User> userOptional = userRepository.findStudentByEmail(email);
+        if (userOptional.isEmpty())
+            return ResponseEntity.status(HttpStatusCode.valueOf(400)).body(null);
+        else {
+            User user = userOptional.get();
+            if (user.getPassword().equals(password)) {
+                user.getComplaintList().forEach(complaint -> {
+                    complaint.setUser(null);
+                });
+                user.getOrderList().forEach(order -> {
+                    order.getProductList().clear();
+                    order.setUserId(null);
+                });
+                return ResponseEntity.ok().body(user);
+            } else {
+                return ResponseEntity.status(HttpStatusCode.valueOf(401)).body(null);
+            }
+        }
     }
 }
