@@ -21,7 +21,7 @@ public class ComplaintController {
     }
 
     @GetMapping("getComplaints")
-    public List<Complaint> getComplaints () {
+    public List<Complaint> getComplaints() {
         return complaintService.getComplaints();
     }
 
@@ -31,17 +31,17 @@ public class ComplaintController {
 //    }
 
     @PostMapping("addComplaint")
-    public ResponseEntity<String> addComplaint (@RequestParam(required = true) String content) {
+    public ResponseEntity<String> addComplaint(@RequestParam(required = true) String content) {
         return complaintService.addComplaint(content);
     }
 
     @DeleteMapping(path = "deleteComplaint/{id}")
-    public ResponseEntity<String> deleteComplaint (@PathVariable("id") Long complaintId) {
+    public ResponseEntity<String> deleteComplaint(@PathVariable("id") Long complaintId) {
         return complaintService.deleteComplaint(complaintId);
     }
 
     @PutMapping(path = "updateComplaint/{id}")
-    public ResponseEntity<String> updateComplaint (@PathVariable("id") Long complaintId, @RequestParam(required = true) String content) {
+    public ResponseEntity<String> updateComplaint(@PathVariable("id") Long complaintId, @RequestParam(required = true) String content) {
         return complaintService.updateComplaint(complaintId, content);
     }
 }

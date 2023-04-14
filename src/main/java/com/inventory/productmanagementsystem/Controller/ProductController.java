@@ -21,22 +21,22 @@ public class ProductController {
     }
 
     @GetMapping("getProducts")
-    public List<Product> getAllProducts () {
+    public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @PostMapping("addProduct")
-    public ResponseEntity<String> addProduct (@RequestBody Product product) {
+    public ResponseEntity<String> addProduct(@RequestBody Product product) {
         return productService.addProduct(product);
     }
 
     @DeleteMapping(path = "deleteProduct/{id}")
-    public ResponseEntity<String> deleteProduct (@PathVariable("id") Long productId) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") Long productId) {
         return productService.deleteProduct(productId);
     }
 
     @PutMapping(path = "updateProduct/{id}")
-    public ResponseEntity<String> updateProduct (@PathVariable("id") Long productId, @RequestBody Product product) {
+    public ResponseEntity<String> updateProduct(@PathVariable("id") Long productId, @RequestBody Product product) {
         return productService.updateProduct(productId, product);
     }
 }
