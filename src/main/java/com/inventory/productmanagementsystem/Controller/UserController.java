@@ -2,7 +2,6 @@ package com.inventory.productmanagementsystem.Controller;
 
 import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Service.UserService;
-import org.hibernate.internal.build.AllowPrintStacktrace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
