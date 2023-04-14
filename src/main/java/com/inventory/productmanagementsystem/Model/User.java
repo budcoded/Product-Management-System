@@ -2,12 +2,14 @@ package com.inventory.productmanagementsystem.Model;
 
 import jakarta.persistence.*;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "user")
 @Table(name = "user")
-public class User {
+
+public  class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,16 +27,15 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private UserRole role;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user" , cascade =  CascadeType.ALL)
     private List<Complaint> complaintList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userId" , cascade = CascadeType.ALL)
     private List<Order> orderList = new ArrayList<>();
-
     public User() {
     }
 
-    public User(String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
+    public User(Long id, String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
+        this.id = id;
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.email = email;
@@ -45,17 +46,7 @@ public class User {
         this.orderList = orderList;
     }
 
-    public User(String name, Long mobileNumber, String email, String password, String address, UserRole role) {
-        this.name = name;
-        this.mobileNumber = mobileNumber;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-        this.role = role;
-    }
-
-    public User(Long id, String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
-        this.id = id;
+    public User(String name, Long mobileNumber, String email, String password, String address, UserRole role, List<Complaint> complaintList, List<Order> orderList) {
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.email = email;
@@ -122,14 +113,6 @@ public class User {
         this.role = role;
     }
 
-    public List<Complaint> getComplaintList() {
-        return complaintList;
-    }
-
-    public void setComplaintList(List<Complaint> complaintList) {
-        this.complaintList = complaintList;
-    }
-
     public List<Order> getOrderList() {
         return orderList;
     }
@@ -138,18 +121,25 @@ public class User {
         this.orderList = orderList;
     }
 
+    public List<Complaint> getComplaintList() {
+        return complaintList;
+    }
+
+    public void setComplaintList(List<Complaint> complaintList) {
+        this.complaintList = complaintList;
+    }
+
     @Override
     public String toString() {
-        return "User {" +
-                "id = " + id +
-                ", name = '" + name + '\'' +
-                ", mobileNumber = " + mobileNumber +
-                ", email = '" + email + '\'' +
-                ", password = '" + password + '\'' +
-                ", address = '" + address + '\'' +
-                ", role = " + role +
-                ", complaintList = " + complaintList +
-                ", orderList = " + orderList +
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", role=" + role +
+                ", complaintList=" + complaintList +
                 '}';
     }
 }
