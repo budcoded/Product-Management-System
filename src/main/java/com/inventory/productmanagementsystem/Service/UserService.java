@@ -117,11 +117,29 @@ public class UserService {
 
 
     public User getUserById(Long userId) {
-        return this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        user.getOrderList().forEach((order) -> {
+            order.getProductList().clear();
+            order.setUserId(null);
+        });
+        user.getComplaintList().forEach((complaint) -> {
+            complaint.setUser(null);
+        });
+        return user;
     }
 
     public List<User> getAllUsers() {
-        return this.userRepository.findAll();
+        List<User> userList = this.userRepository.findAll();
+        userList.forEach((user) -> {
+            user.getOrderList().forEach((order) -> {
+                order.getProductList().clear();
+                order.setUserId(null);
+            });
+            user.getComplaintList().forEach((complaint) -> {
+                complaint.setUser(null);
+            });
+        });
+        return userList;
     }
 
     public String deleteUser(Long userId) {
