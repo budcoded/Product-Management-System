@@ -2,14 +2,12 @@ package com.inventory.productmanagementsystem.Model;
 
 import jakarta.persistence.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "user")
 @Table(name = "user")
-
-public  class User {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,10 +25,11 @@ public  class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private UserRole role;
-    @OneToMany(mappedBy = "user" , cascade =  CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Complaint> complaintList = new ArrayList<>();
-    @OneToMany(mappedBy = "userId" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     private List<Order> orderList = new ArrayList<>();
+
     public User() {
     }
 
@@ -131,15 +130,15 @@ public  class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", mobileNumber=" + mobileNumber +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", role=" + role +
-                ", complaintList=" + complaintList +
+        return "User {" +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", mobileNumber = " + mobileNumber +
+                ", email = '" + email + '\'' +
+                ", password = '" + password + '\'' +
+                ", address = '" + address + '\'' +
+                ", role = " + role +
+                ", complaintList = " + complaintList +
                 '}';
     }
 }
