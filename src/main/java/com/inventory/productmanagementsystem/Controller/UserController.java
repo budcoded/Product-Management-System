@@ -48,9 +48,9 @@ public class UserController {
         return userService.deleteUser(userId);
     }
 
-    @GetMapping("login")
-    public Object userLogin (@RequestParam(name = "email") String email, @RequestParam(name = "password") String password) {
-        ResponseEntity<User> userResponseEntity = userService.loginUser(email, password);
+    @PostMapping("login")
+    public Object userLogin (@RequestBody User user) {
+        ResponseEntity<User> userResponseEntity = userService.loginUser(user);
         if (userResponseEntity.getStatusCode() == HttpStatusCode.valueOf(401)) {
             return "Please enter correct password.";
         } else if (userResponseEntity.getStatusCode() == HttpStatusCode.valueOf(400)) {
