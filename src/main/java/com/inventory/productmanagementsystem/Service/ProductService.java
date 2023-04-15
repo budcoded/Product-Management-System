@@ -19,7 +19,14 @@ public class ProductService {
     }
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        List<Product> productList = productRepository.findAll();
+        productList.forEach(product -> {
+            product.getOrderList().forEach(order -> {
+                order.getProductList().clear();
+                order.setUserId(null);
+            });
+        });
+        return productList;
     }
 
     public ResponseEntity<String> addProduct(Product product) {

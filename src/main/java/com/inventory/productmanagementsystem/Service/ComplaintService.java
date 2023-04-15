@@ -20,7 +20,12 @@ public class ComplaintService {
     }
 
     public List<Complaint> getComplaints() {
-        return complaintRepository.findAll();
+        List<Complaint> complaintList = complaintRepository.findAll();
+        complaintList.forEach((complaint) -> {
+            complaint.getUser().getComplaintList().clear();
+            complaint.getUser().getOrderList().clear();
+        });
+        return complaintList;
     }
 
     public ResponseEntity<String> addComplaint(String content) {

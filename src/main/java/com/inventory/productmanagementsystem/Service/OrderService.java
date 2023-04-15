@@ -20,7 +20,15 @@ public class OrderService {
     }
 
     public List<Order> getOrders() {
-        return orderRepository.findAll();
+        List<Order> orderList = orderRepository.findAll();
+        orderList.forEach(order -> {
+            order.getUserId().getOrderList().clear();
+            order.getUserId().getComplaintList().clear();
+            order.getProductList().forEach(product -> {
+                product.getOrderList().clear();
+            });
+        });
+        return orderList;
     }
 
     public ResponseEntity<String> addOrder(Order order) {
