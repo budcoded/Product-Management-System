@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import '../css/register.css';
-// import {TextField} from "@mui/material";
+import React, {useState} from 'react';
+import '../css/RegistrationForm.css';
 import {TextareaAutosize, TextField} from "@mui/material";
 
 function RegistrationForm() {
@@ -21,10 +20,10 @@ function RegistrationForm() {
 		<form onSubmit={handleSubmit}>
 			<div className="registerform">
 				<label>Register</label>
-				<TextField variant="outlined" label="Name" />
-				<TextField variant="outlined" label="Email" type="email" />
-				<TextField variant="outlined" label="Password" type="password" />
-				<TextField variant="outlined" label="Mobile Number" type="mobilenumber" />
+				<TextField variant="outlined" label="Name"/>
+				<TextField variant="outlined" label="Email" type="email"/>
+				<TextField variant="outlined" label="Password" type="password"/>
+				<TextField variant="outlined" label="Mobile Number" type="mobilenumber"/>
 				<div className="address-field">
 					<TextareaAutosize
 						value={address}
@@ -32,7 +31,7 @@ function RegistrationForm() {
 						minRows={5}
 						maxRows={8}
 						maxLength={100}
-						style={{ width: 295,fontFamily: 'Arial, sans-serif' }}
+						style={{width: 295, fontFamily: 'Arial, sans-serif'}}
 						placeholder=" Address "
 					/>
 				</div>

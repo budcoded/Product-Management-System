@@ -1,0 +1,111 @@
+.registerform {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	width: 100%; /* Set the width of the box */
+	max-width: 500px; /* Set the maximum width of the box */
+	margin: 50px auto 0;
+}
+
+body {
+	background-color: #b7c9ff; /* set background color */
+}
+
+label {
+	font-size: 40px;
+	font-family: serif;
+	font-weight: bold;
+}
+
+.registerform > * {
+	margin: 10px 0;
+}
+
+.MuiFormControl-root {
+	width: 300px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.MuiInputLabel-formControl {
+	top: -4px;
+	font-size: 16px;
+}
+
+.MuiOutlinedInput-root {
+	border-radius: 5px;
+}
+
+.MuiFilledInput-root {
+	border-radius: 5px;
+}
+
+/* add margin between form fields */
+.MuiFormControl-root:not(:first-child) {
+	margin-top: 20px;
+	background: white;
+
+}
+
+.MuiFilledInput-root {
+	border-radius: 5px;
+	padding-bottom: 10px;
+
+}
+
+
+button[type="submit"] {
+	background-color: #4285f4;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	text-align: center;
+	margin-top: 30px !important; /* add some margin to move the button down */
+	display: block;
+	margin: 0 auto;
+}
+
+
+button[type="submit"]:hover {
+	background-color: #357ae8;
+}
+
+.address-field {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.address-field label {
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.MuiTextareaAutosize-root {
+	width: 50%;
+	background-color: #f5f5f5;
+	border-radius: 5px;
+	border: none;
+	padding: 10px;
+	resize: block;
+	box-sizing: content-box;
+
+}
+
+.AutoTextArea-root {
+	min-height: 80px;
+}
+
+textarea::placeholder {
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+	text-align: justify;
+}

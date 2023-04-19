@@ -1,34 +1,20 @@
-// import './App.css';
-// import React from 'react';
-// import LoginPage from './components/login';
-// import RegistrationForm from "./components/register";
-// import AddProduct from "./components/addProduct";
-// import adminDashboard from "./components/adminDashboard";
-// function App() {
-// 	return (
-// 		// <LoginPage/>
-// 		//<RegistrationForm/>
-// 		//<AddProduct/>
-// 		<adminDashboard/>
-// 	);
-// }
-//
-// export default App;
-
-import React from 'react';
-import {BrowserRouter, BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import LoginPage from './components/login';
-import RegistrationForm from "./components/register";
+import './App.css';
+import LoginPage from './components/LoginPage';
+import React from "react";
+import {Route, Routes} from "react-router-dom";
+import NoMatch from "./components/NoMatch";
+import RegistrationForm from "./components/RegistrationForm";
+import AdminDashboard from "./components/AdminDashboard";
 import AddProduct from "./components/addProduct";
-import adminDashboard from "./components/adminDashboard";
 
 function App() {
 	return (
 		<Routes>
-				<Route path="/" component={<LoginPage/>} />
-				{/*<Route path="/login" component={LoginPage} />*/}
-				<Route path="/register" component={<RegistrationForm/>} />
-				<Route path="/addProduct" component={<AddProduct/>} />
+			<Route path="/" element={<LoginPage/>}></Route>
+			<Route path="/register" element={<RegistrationForm/>}></Route>
+			<Route path="/admindashboard" element={<AdminDashboard/>}></Route>
+			<Route path="/addproduct" element={<AddProduct/>}></Route>
+			<Route path="*" element={<NoMatch/>}></Route>
 		</Routes>
 	);
 }
