@@ -1,0 +1,34 @@
+/* Set styles for the navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blue !important;
+    color: white;
+    padding: 1rem;
+}
+body{
+    background-color: lavender;
+}
+/* Set styles for the title link */
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Set styles for the button links */
+nav button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 2rem;
+}
+
+nav button:hover {
+    text-decoration: underline;
+}
