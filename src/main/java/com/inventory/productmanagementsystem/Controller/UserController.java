@@ -22,9 +22,13 @@ public class UserController {
     }
 
     @PostMapping("create")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createUser = this.userService.createUser(user);
-        return new ResponseEntity<>(createUser, HttpStatus.CREATED);
+    public Object createUser(@RequestBody User user) {
+        ResponseEntity<User> responseEntity = this.userService.createUser(user);
+        if (responseEntity.getStatusCode() == HttpStatusCode.valueOf(400)) {
+            return "Email already Exist.";
+        } else {
+            return responseEntity;
+        }
     }
 
     @PutMapping("update/{id}")

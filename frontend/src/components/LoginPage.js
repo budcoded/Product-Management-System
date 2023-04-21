@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import '../css/LoginForm.css';
-import {Button, TextField} from "@mui/material";
+import {Button, getAlertUtilityClass, TextField} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
 function LoginPage() {
@@ -33,7 +33,13 @@ function LoginPage() {
 				email: email,
 				password: password,
 			});
-			console.log(response);
+			console.log(response.data);
+			if (response.data === "Please enter correct password." || response.data === "Email doesn't exist.") {
+				alert(response.data);
+			} else {
+				// alert(response.data.name);
+				navigate("/admindashboard", {state: {data: response.data}});
+			}
 		} catch (error) {
 			console.log(error);
 			setError(error.response);

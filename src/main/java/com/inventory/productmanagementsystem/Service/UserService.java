@@ -103,8 +103,14 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser(User user) {
-        return this.userRepository.save(user);
+    public ResponseEntity<User> createUser(User user) {
+        Optional<User> userOptional = userRepository.findUserByEmail(user.getEmail());
+        if (userOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatusCode.valueOf(400)).body(null);
+        } else {
+            User savedUser = userRepository.save(user);
+            return ResponseEntity.ok().body(savedUser);
+        }
     }
 
     public User updateUser(User user, Long userId) {
@@ -152,7 +158,7 @@ public class UserService {
     public ResponseEntity<User> loginUser(User user1) {
         String email = user1.getEmail();
         String password = user1.getPassword();
-        Optional<User> userOptional = userRepository.findStudentByEmail(email);
+        Optional<User> userOptional = userRepository.findUserByEmail(email);
         if (userOptional.isEmpty())
             return ResponseEntity.status(HttpStatusCode.valueOf(400)).body(null);
         else {
