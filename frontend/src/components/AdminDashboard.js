@@ -1,11 +1,21 @@
 import React from 'react';
-import '../css/AdminDashboard.css'
+import {AppBar, Button, Toolbar} from "@mui/material";
+import {Link} from "react-router-dom";
 
 function AdminDashboard() {
+
 	return (
-		<div>
-			This is admin dashboard.
-		</div>
+		<AppBar>
+			<Toolbar>
+				<Button component={Link} to="/addproduct" color="inherit">
+					Add Product
+				</Button>
+				<div style={{flexGrow: 1}}/>
+				<Button color="inherit" component={Link} to="/">
+					Logout
+				</Button>
+			</Toolbar>
+		</AppBar>
 	);
 }
 
