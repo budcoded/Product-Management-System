@@ -3,6 +3,7 @@ package com.inventory.productmanagementsystem.Controller;
 import com.inventory.productmanagementsystem.Model.Product;
 import com.inventory.productmanagementsystem.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -21,13 +22,13 @@ public class ProductController {
     }
 
     @GetMapping("getProducts")
-    public List<Product> getAllProducts() {
-        return productService.getAllProducts();
+    public ResponseEntity<?> getAllProducts() {
+        return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
     }
 
     @PostMapping("addProduct")
-    public ResponseEntity<String> addProduct(@RequestBody Product product) {
-        return productService.addProduct(product);
+    public ResponseEntity<?> addProduct(@RequestBody Product product) {
+        return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "deleteProduct/{id}")
