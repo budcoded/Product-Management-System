@@ -1,34 +1,35 @@
-/* Set styles for the navigation bar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: blue !important;
-    color: white;
-    padding: 1rem;
-}
-body{
-    background-color: lavender;
-}
-/* Set styles for the title link */
-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+/*!* Style for the navigation bar *!*/
+/*nav {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    background-color: #2196f3;*/
+/*    color: #ffffff;*/
+/*    padding: 50px;*/
+/*}*/
 
-/* Set styles for the button links */
-nav button {
-    background-color: transparent;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 2rem;
-}
+/*!* Style for the "Add Product" button *!*/
+/*nav .add-product {*/
+/*    padding: 50px 30px;*/
+/*    border-radius: 4px;*/
+/*    background-color: #ffffff;*/
+/*    color: #2196f3;*/
+/*    text-decoration: none;*/
+/*}*/
 
-nav button:hover {
-    text-decoration: underline;
-}
+/*!* Style for the "Logout" button *!*/
+/*nav .logout {*/
+/*    padding: 8px 16px;*/
+/*    border-radius: 4px;*/
+/*    background-color: #ffffff;*/
+/*    color: #2196f3;*/
+/*    text-decoration: none;*/
+/*    text-align: right;*/
+/*}*/
+
+/*!* Hover effect for the buttons *!*/
+/*nav .add-product:hover,*/
+/*nav .logout:hover {*/
+/*    background-color: #2196f3;*/
+/*    color: #ffffff;*/
+/*}*/
