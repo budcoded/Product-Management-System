@@ -11,7 +11,7 @@ import {
 	Toolbar
 } from "@mui/material";
 import {Link, useLocation} from "react-router-dom";
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import '../css/AdminDashboard.css'
 import axios from "axios";
 
@@ -23,19 +23,15 @@ function AdminDashboard() {
     // const mobileNumber = location.state.data.mobileNumber;
     // const role = location.state.data.role;
 	const [products, setProducts] = useState([]);
-    const fetchProducts = async () => {
-        // event.preventDefault();
+    const fetchProducts = async (event) => {
+        event.preventDefault();
         try {
             const response = await axios.get('http://localhost:1111/api/product/getProducts');
             console.log(response.data);
-			setProducts(response.data)
         } catch (error) {
             console.log(error);
         }
     };
-	useEffect(() => {
-		fetchProducts();
-	}, []);
 
     return (
         <>
@@ -51,25 +47,39 @@ function AdminDashboard() {
 				</Toolbar>
 			</AppBar>
 			<div>
-				{/*<h2>This is admin dashboard.</h2>*/}
-				{/*<h3>Data Received: </h3>*/}
-				{/*<p>{id}, {name}, {email}, {mobileNumber}, {role}</p>*/}
 				<TableContainer component={Paper} variant="outlined">
 					<Table aria-label="demo table">
 						<TableHead>
 							<TableRow>
 								<TableCell>Dessert</TableCell>
 								<TableCell>Calories</TableCell>
+								<TableCell align="right">Actions</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							<TableRow>
 								<TableCell>Frozen yoghurt</TableCell>
 								<TableCell>109</TableCell>
+								<TableCell align="right">
+									<IconButton>
+										<EditIcon />
+									</IconButton>
+									<IconButton>
+										<DeleteIcon />
+									</IconButton>
+								</TableCell>
 							</TableRow>
 							<TableRow>
 								<TableCell>Cupcake</TableCell>
 								<TableCell>305</TableCell>
+								<TableCell align="right">
+									<IconButton>
+										<EditIcon />
+									</IconButton>
+									<IconButton>
+										<DeleteIcon />
+									</IconButton>
+								</TableCell>
 							</TableRow>
 						</TableBody>
 					</Table>
