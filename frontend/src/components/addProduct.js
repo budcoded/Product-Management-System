@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { TextField, TextareaAutosize, MenuItem, Button } from '@mui/material';
 import '../css/addProduct.css'
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
-const categories = ['Groceries', 'Fruits','Home and Kitchen', 'Fashion','Electronics', 'Sports','Books'];
+const categories = ['GROCERIES', 'FRUITS','HOMEANDKITCHEN', 'FASHION','ELECTRONICS', 'SPORTS'];
 
 function AddProduct() {
+	const navigate = useNavigate();
 	const [productName, setProductName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState('');
@@ -32,9 +35,42 @@ function AddProduct() {
 		setCategory(event.target.value);
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
-		// submit form logic goes here
+		if (productName.trim().length === 0) {
+			alert("Product Name field can't be empty.");
+			return;
+		}
+		if (price.trim().length === 0) {
+			alert("Price field can't be empty");
+			return;
+		}
+		if (quantity.trim().length === 0) {
+			alert("Quantity field can't be empty");
+			return;
+		}
+		if (category.trim().length === 0) {
+			alert("Category field can't be empty");
+			return;
+		}
+		try {
+			const response = await axios.post('http://localhost:1111/api/product/addProduct', {
+				name: productName,
+				price: price,
+				quantity: quantity,
+				productCategory: category,
+				description: description
+			});
+			console.log(response.data);
+			if (response.data.body === "Product Successfully Added.") {
+				navigate("/admindashboard", {state: {data: response.data}});
+			} else {
+				alert(response.data);
+			}
+		} catch (error) {
+			console.log(error);
+			//setError(error.response);
+		}
 	};
 
 	return (
