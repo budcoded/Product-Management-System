@@ -11,7 +11,7 @@ import {
 	Toolbar
 } from "@mui/material";
 import {Link, useLocation} from "react-router-dom";
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../css/AdminDashboard.css'
 import axios from "axios";
 
@@ -23,15 +23,19 @@ function AdminDashboard() {
     // const mobileNumber = location.state.data.mobileNumber;
     // const role = location.state.data.role;
 	const [products, setProducts] = useState([]);
-    const fetchProducts = async (event) => {
-        event.preventDefault();
+    const fetchProducts = async () => {
+        // event.preventDefault();
         try {
             const response = await axios.get('http://localhost:1111/api/product/getProducts');
             console.log(response.data);
+			setProducts(response.data)
         } catch (error) {
             console.log(error);
         }
     };
+	useEffect(() => {
+		fetchProducts();
+	}, []);
 
     return (
         <>
