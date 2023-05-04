@@ -54,25 +54,25 @@ function AdminDashboard() {
 					</Button>
 				</Toolbar>
 			</AppBar>
-			<div>
+			<div className="table-style">
 				<TableContainer component={Paper} variant="outlined">
 					<Table aria-label="products table">
 						<TableHead>
-							<TableRow>
-								<TableCell>Name</TableCell>
-								<TableCell>Description</TableCell>
-								<TableCell>Category</TableCell>
-								<TableCell>Price</TableCell>
-								<TableCell align="right">Actions</TableCell>
+							<TableRow className="bold-row">
+								<TableCell className="bold-row">Name</TableCell>
+								<TableCell className="bold-row">Description</TableCell>
+								<TableCell className="bold-row">Category</TableCell>
+								<TableCell className="bold-row">Price</TableCell>
+								<TableCell className="bold-row" align="right">Actions</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
 							{products.map((product) => (
 								<TableRow key={product.id}>
-									<TableCell>{product.name}</TableCell>
-									<TableCell>{product.description}</TableCell>
-									<TableCell>{product.productCategory}</TableCell>
-									<TableCell>{product.price}</TableCell>
+									<TableCell className="normal-row">{product.name}</TableCell>
+									<TableCell className="normal-row">{product.description}</TableCell>
+									<TableCell className="normal-row">{product.productCategory}</TableCell>
+									<TableCell className="normal-row">{product.price}</TableCell>
 									<TableCell align="right">
 										<IconButton>
 											<EditIcon />
