@@ -59,11 +59,11 @@ function AdminDashboard() {
 					<Table aria-label="products table" style={{ tableLayout: 'fixed' }}>
 						<TableHead>
 							<TableRow>
-								<TableCell style={{ width: '25%' }}>Name</TableCell>
-								<TableCell style={{ width: '40%' }}>Description</TableCell>
-								<TableCell style={{ width: '15%' }}>Category</TableCell>
-								<TableCell style={{ width: '10%' }}>Price</TableCell>
-								<TableCell style={{ width: '10%' }} align="right">Actions</TableCell>
+								<TableCell style={{ width: '25%' , fontWeight:'bold'}}>Name</TableCell>
+								<TableCell style={{ width: '40%' , fontWeight:'bold'}}>Description</TableCell>
+								<TableCell style={{ width: '15%' , fontWeight:'bold'}}>Category</TableCell>
+								<TableCell style={{ width: '10%' , fontWeight:'bold'}}>Price</TableCell>
+								<TableCell style={{ width: '10%' , fontWeight:'bold'}} align="right">Actions</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
