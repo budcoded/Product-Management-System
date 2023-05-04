@@ -1,3 +1,19 @@
+.bold-row {
+    font-weight: bold !important;
+    font-size: 20px !important;
+    font-family: "ubuntu mono", serif !important;
+}
+
+.normal-row {
+    font-size: 18px !important;
+    font-family: "ubuntu mono", serif !important;
+}
+
+.table-style {
+    flex: inherit !important;
+    flex-direction: column !important;
+}
+
 /*!* Style for the navigation bar *!*/
 /*nav {*/
 /*    display: flex;*/
