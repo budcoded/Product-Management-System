@@ -54,16 +54,16 @@ function AdminDashboard() {
 					</Button>
 				</Toolbar>
 			</AppBar>
-			<div>
-				<TableContainer component={Paper} variant="outlined">
-					<Table aria-label="products table">
+			<div style =  {{ maxWidth: '150%', margin: '0 auto' }}>
+				<TableContainer component={Paper} variant="outlined" style={{ width: '99%', margin: '0 auto' }}>
+					<Table aria-label="products table" style={{ tableLayout: 'fixed' }}>
 						<TableHead>
 							<TableRow>
-								<TableCell>Name</TableCell>
-								<TableCell>Description</TableCell>
-								<TableCell>Category</TableCell>
-								<TableCell>Price</TableCell>
-								<TableCell align="right">Actions</TableCell>
+								<TableCell style={{ width: '25%' }}>Name</TableCell>
+								<TableCell style={{ width: '40%' }}>Description</TableCell>
+								<TableCell style={{ width: '15%' }}>Category</TableCell>
+								<TableCell style={{ width: '10%' }}>Price</TableCell>
+								<TableCell style={{ width: '10%' }} align="right">Actions</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
@@ -86,6 +86,7 @@ function AdminDashboard() {
 						</TableBody>
 					</Table>
 				</TableContainer>
+
 			</div>
 		</>
     );
