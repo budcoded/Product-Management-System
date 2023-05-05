@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -57,5 +58,19 @@ public class ProductService {
         updatedProduct.setProductCategory(product.getProductCategory());
         updatedProduct.getOrderList().addAll(product.getOrderList());
         return ResponseEntity.status(200).body("Product updated successfully.");
+    }
+
+    public ResponseEntity<Object> getProductById(Long id) {
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            product.getOrderList().forEach(order -> {
+                order.getProductList().clear();
+                order.setUserId(null);
+            });
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.status(400).body("Product Not Found");
+        }
     }
 }

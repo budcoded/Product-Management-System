@@ -1,0 +1,88 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:  #b7c9ff;
+}
+/*.form-field {*/
+/*    margin: 50px auto 0;*/
+/*    width: 40% !important;*/
+/*    max-width: 400px !important;*/
+/*}*/
+
+.form-field label {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-field input[type="text"],
+.form-field textarea,
+.form-field input[type="number"],
+.form-field .MuiSelect-select {
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 40%;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-field input[type="text"]:focus,
+.form-field textarea:focus,
+.form-field input[type="number"]:focus,
+.form-field .MuiSelect-select:focus {
+    border: 3px solid #0077ff;
+    outline: none;
+}
+
+.form-field .MuiSelect-select {
+    padding-right: 2rem;
+}
+
+.form-field .MuiInputAdornment-root {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+.form-field .MuiButton-contained {
+    margin-top: 1rem;
+}
+.address-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.address-field label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.MuiTextareaAutosize-root {
+    width: 95% !important;
+    background-color: #fff;
+    border: 1px solid lightgray;
+    padding: 10px;
+    resize: block;
+    box-sizing: content-box;
+}
+.my-textarea:focus {
+    border-color: blue !important;
+}

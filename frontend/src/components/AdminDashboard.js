@@ -19,12 +19,6 @@ import "../css/AdminDashboard.css";
 import axios from "axios";
 
 function AdminDashboard() {
-    // const location = useLocation();
-    // const id = location.state.data.id;
-    // const name = location.state.data.name;
-    // const email = location.state.data.email;
-    // const mobileNumber = location.state.data.mobileNumber;
-    // const role = location.state.data.role;
 	const [products, setProducts] = useState([]);
     const fetchProducts = async () => {
         try {
@@ -39,6 +33,18 @@ function AdminDashboard() {
 	useEffect(() => {
 		fetchProducts();
 	}, []);
+
+	const deleteProduct = async (id) => {
+		try {
+			const response = await axios.delete('http://localhost:1111/api/product/deleteProduct/' + id);
+			console.log(response.data);
+			alert(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+
 
 
 	return (
@@ -74,10 +80,15 @@ function AdminDashboard() {
 									<TableCell>{product.productCategory}</TableCell>
 									<TableCell>{product.price}</TableCell>
 									<TableCell align="right">
-										<IconButton>
-											<EditIcon />
-										</IconButton>
-										<IconButton>
+										{/*<IconButton onClick = {() => updateProduct(product.id,product) }>*/}
+										{/*	<EditIcon />*/}
+										{/*</IconButton>*/}
+										<Link to={`/editproduct/${product.id}`}>
+											<IconButton>
+												<EditIcon />
+											</IconButton>
+										</Link>
+										<IconButton  onClick={() => deleteProduct(product.id) }>
 											<DeleteIcon />
 										</IconButton>
 									</TableCell>

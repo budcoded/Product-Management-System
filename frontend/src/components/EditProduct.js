@@ -1,19 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, TextareaAutosize, MenuItem, Button } from '@mui/material';
-import '../css/addProduct.css'
+import '../css/EditProduct.css'
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
-const categories = ['GROCERIES', 'FRUITS','HOMEANDKITCHEN', 'FASHION','ELECTRONICS', 'SPORTS','BOOKS'];
+const categories = ['GROCERIES', 'FRUITS','HOMEANDKITCHEN', 'FASHION','ELECTRONICS', 'SPORTS' , 'BOOKS'];
 
-function AddProduct() {
+function EditProduct() {
 	const navigate = useNavigate();
 	const [productName, setProductName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState('');
 	const [quantity, setQuantity] = useState('');
 	const [category, setCategory] = useState('');
+
+	const {id} = useParams();
+
+	async function fetchProduct() {
+		try {
+			const response = await axios.get(`http://localhost:1111/api/product/getProductById/${id}`);
+			const product = response.data;
+			// console.log(product);
+			setProductName(product.name);
+			setDescription(product.description);
+			setPrice(product.price);
+			setQuantity(product.quantity);
+			setCategory(product.productCategory);
+			console.log(productName);
+			console.log(description);
+			console.log(price);
+			console.log(quantity);
+			console.log(category);
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	useEffect(() => {
+		// Fetch the product data from the server and populate the state
+		fetchProduct();
+	}, [id]);
 
 	const handleProductNameChange = (event) => {
 		setProductName(event.target.value);
@@ -54,7 +81,7 @@ function AddProduct() {
 			return;
 		}
 		try {
-			const response = await axios.post('http://localhost:1111/api/product/addProduct', {
+			const response = await axios.put(`http://localhost:1111/api/product/updateProduct/${id}`, {
 				name: productName,
 				price: price,
 				quantity: quantity,
@@ -62,20 +89,19 @@ function AddProduct() {
 				description: description
 			});
 			console.log(response.data);
-			if (response.data.body === "Product Successfully Added.") {
+			if (response.data === "Product updated successfully.") {
 				navigate("/admindashboard", {state: {data: response.data}});
 			} else {
 				alert(response.data);
 			}
 		} catch (error) {
 			console.log(error);
-			//setError(error.response);
 		}
 	};
 
 	return (
 		<form className="form-container" onSubmit={handleSubmit}>
-			<label>Add Product</label>
+			<label>Edit Product</label>
 			<TextField
 				label="Product Name"
 				value={productName}
@@ -130,10 +156,10 @@ function AddProduct() {
 				placeholder="Enter a description"
 			/>
 			<Button variant="contained" color="primary" type="submit">
-				Add Product
+				Edit Product
 			</Button>
 		</form>
 	);
 }
 
-export default AddProduct;
+export default EditProduct;

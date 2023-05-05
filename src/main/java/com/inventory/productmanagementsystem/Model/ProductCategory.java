@@ -6,5 +6,7 @@ public enum ProductCategory {
     HOMEANDKITCHEN,
     FASHION,
     ELECTRONICS,
-    SPORTS
+    SPORTS,
+
+    BOOKS,
 }
