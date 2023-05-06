@@ -52,8 +52,9 @@ function LoginPage() {
 
 	return (
 		<div>
-			<h1 className="h1"> Login Page </h1>
+
 			<form className="login-form" onSubmit={handleSubmit}>
+				<h1 className="h1"> Login Page </h1>
 				<div className="input-box">
 					<TextField variant="outlined" value={email} id="email" onChange={handleEmailChange} label="Email"
 							   type="email"/>

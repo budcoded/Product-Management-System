@@ -60,16 +60,16 @@ function AdminDashboard() {
 					</Button>
 				</Toolbar>
 			</AppBar>
-			<div style =  {{ maxWidth: '150%', margin: '0 auto' }}>
+			<div style =  {{ maxWidth: '150%', margin: '0 auto ',height: "590px", overflowY: "scroll" ,paddingTop: '60px', paddingBottom: '5px' }}>
 				<TableContainer component={Paper} variant="outlined" style={{ width: '99%', margin: '0 auto' }}>
 					<Table aria-label="products table" style={{ tableLayout: 'fixed' }}>
 						<TableHead>
 							<TableRow>
-								<TableCell style={{ width: '25%' , fontWeight:'bold'}}>Name</TableCell>
-								<TableCell style={{ width: '40%' , fontWeight:'bold'}}>Description</TableCell>
-								<TableCell style={{ width: '15%' , fontWeight:'bold'}}>Category</TableCell>
-								<TableCell style={{ width: '10%' , fontWeight:'bold'}}>Price</TableCell>
-								<TableCell style={{ width: '10%' , fontWeight:'bold'}} align="right">Actions</TableCell>
+								<TableCell style={{ width: '25%' , fontWeight:'bold' , fontSize: '18px'}}>Name</TableCell>
+								<TableCell style={{ width: '40%' , fontWeight:'bold', fontSize: '18px'}}>Description</TableCell>
+								<TableCell style={{ width: '15%' , fontWeight:'bold', fontSize: '18px'}}>Category</TableCell>
+								<TableCell style={{ width: '10%' , fontWeight:'bold', fontSize: '18px'}}>Price</TableCell>
+								<TableCell style={{ width: '10%' , fontWeight:'bold', fontSize: '18px'}} align="right">Actions</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>

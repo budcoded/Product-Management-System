@@ -68,14 +68,14 @@ function EditProduct() {
 			alert("Product Name field can't be empty.");
 			return;
 		}
-		if (price.trim().length === 0) {
-			alert("Price field can't be empty");
-			return;
-		}
-		if (quantity.trim().length === 0) {
-			alert("Quantity field can't be empty");
-			return;
-		}
+		// if (price.trim().length === 0) {
+		// 	alert("Price field can't be empty");
+		// 	return;
+		// }
+		// if (quantity.trim().length === 0) {
+		// 	alert("Quantity field can't be empty");
+		// 	return;
+		// }
 		if (category.trim().length === 0) {
 			alert("Category field can't be empty");
 			return;
