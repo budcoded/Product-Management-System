@@ -1,31 +1,72 @@
+#services:
+#  frontend:
+#    image: budcoded/productmanagementsystemui:latest
+#    ports:
+#      - "3000:3000"
+#  backend:
+#    image: budcoded/productmanagementsystem:latest
+#    ports:
+#      - "1111:1111"
+#    depends_on:
+#      db:
+#        condition: service_healthy
+#    environment:
+#      - IP=172.16.128.197
+##      - IP=db
+#      - PORT=3308
+#      - MYSQL_ROOT_PASSWORD=password
+#  db:
+#    image: mysql
+#    healthcheck:
+#      test: ["CMD", "ls"]
+#    ports:
+#      - "3308:3306"
+#    volumes:
+#      - productmanagementsystem:/var/lib/mysql
+#    environment:
+#      MYSQL_ROOT_PASSWORD: "password"
+#volumes:
+#  productmanagementsystem:
+
 services:
-  frontend:
-    image: budcoded/productmanagementsystemui:latest
-    ports:
-      - "3000:3000"
+  db:
+    image: mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: product_management_system
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_password
+    volumes:
+      - myvol:/var/lib/mysql
+    networks:
+      - app_network
   backend:
     image: budcoded/productmanagementsystem:latest
     ports:
       - "1111:1111"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/product_management_system
+      SPRING_DATASOURCE_USERNAME: app_user
+      SPRING_DATASOURCE_PASSWORD: app_password
+      SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.MySQL5Dialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
     depends_on:
       db:
         condition: service_healthy
-    environment:
-      - IP = 172.16.128.197
-      - PORT = 3308
-      - MYSQL_ROOT_PASSWORD = password
     networks:
-      net_ubuntu:
-        ipv4_address: 172.28.1.6
-  db:
-    image: mysql
-    healthcheck:
-      test: ["CMD", "ls"]
+      - app_network
+  frontend:
+    image: budcoded/productmanagementsystemui:latest
+    networks:
+      - app_network
     ports:
-      - "3308:3306"
-    volumes:
-      - productmanagementsystem:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD = password
+      - "3000:3000"
 volumes:
-  productmanagementsystem:
+  myvol:
+networks:
+  app_network:
