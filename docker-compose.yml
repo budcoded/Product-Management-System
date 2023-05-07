@@ -1,52 +1,59 @@
 services:
-  clientnode:
+  frontend:
     image: budcoded/productmanagementsystemui:latest
     ports:
       - "3000:3000"
-    networks:
-      net_ubuntu:
-        ipv4_address: 172.28.1.5
-  servernode:
+#    networks:
+#      net_ubuntu:
+#        ipv4_address: 172.28.1.5
+  backend:
     image: budcoded/productmanagementsystem:latest
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 10s
-        max_attempts: 5
-        window: 120s
+#    deploy:
+#      restart_policy:
+#        condition: on-failure
+#        delay: 10s
+#        max_attempts: 5
+#        window: 120s
     ports:
       - "1111:1111"
     depends_on:
-      - "dbnode"
+      db:
+        condition: service_healthy
     environment:
-      DATABASE_HOST: "dbnode"
-      DATABASE_PORT: "3306"
-      MYSQL_DATABASE: "product_management_system"
-      MYSQL_USER: "user"
-      MYSQL_PASSWORD: "password"
+      - IP = 172.16.128.197
+      - PORT = 3308
+      - MYSQL_ROOT_PASSWORD = password
+
+    #      DATABASE_HOST: "dbnode"
+#      DATABASE_PORT: "3306"
+#      MYSQL_DATABASE: "product_management_system"
+#      MYSQL_USER: "user"
+#      MYSQL_PASSWORD: "password"
     networks:
       net_ubuntu:
         ipv4_address: 172.28.1.6
-  dbnode:
+  db:
     image: mysql
+    healthcheck:
+      test: ["CMD", "ls"]
     ports:
-      - "3306:3306"
+      - "3308:3306"
     volumes:
       - productmanagementsystem:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: "rootpassword"
-      MYSQL_DATABASE: "product_management_system"
-      MYSQL_USER: "user"
-      MYSQL_PASSWORD: "password"
-    networks:
-      net_ubuntu:
-        ipv4_address: 172.28.1.7
+      - MYSQL_ROOT_PASSWORD = password
+#      MYSQL_DATABASE: "product_management_system"
+#      MYSQL_USER: "user"
+#      MYSQL_PASSWORD: "password"
+#    networks:
+#      net_ubuntu:
+#        ipv4_address: 172.28.1.7
 
-networks:
-  net_ubuntu:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.28.1.0/24
+#networks:
+#  net_ubuntu:
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.28.1.0/24
 volumes:
   productmanagementsystem:
