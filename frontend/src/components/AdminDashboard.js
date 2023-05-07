@@ -38,6 +38,7 @@ function AdminDashboard() {
 		try {
 			const response = await axios.delete('http://localhost:1111/api/product/deleteProduct/' + id);
 			console.log(response.data);
+			fetchProducts();
 			alert(response.data);
 		} catch (error) {
 			console.log(error);
