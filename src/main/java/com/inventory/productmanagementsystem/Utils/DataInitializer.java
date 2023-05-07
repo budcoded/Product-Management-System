@@ -1,6 +1,7 @@
 package com.inventory.productmanagementsystem.Utils;
 
-import com.inventory.productmanagementsystem.Model.*;
+import com.inventory.productmanagementsystem.Model.User;
+import com.inventory.productmanagementsystem.Model.UserRole;
 import com.inventory.productmanagementsystem.Repository.OrderRepository;
 import com.inventory.productmanagementsystem.Repository.ProductRepository;
 import com.inventory.productmanagementsystem.Repository.UserRepository;
@@ -8,14 +9,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Configuration
 public class DataInitializer {
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository) {
         return args -> {
-            /*// This config is used to create admin user only for the first time...
+            // This config is used to create admin user only for the first time...
             User admin = new User();
             admin.setName("Admin");
             admin.setEmail("Admin@iiitb.ac.in");
@@ -24,7 +25,9 @@ public class DataInitializer {
             admin.setRole(UserRole.ADMIN);
             admin.setMobileNumber(8887774441L);
 
-            userRepository.save(admin);*/
+            Optional<User> optionalUser = userRepository.findUserByEmail(admin.getEmail());
+            if (optionalUser.isEmpty())
+                userRepository.save(admin);
 
             // This configuration was used to test all the CRUD API's...
             /*// Creating admin user
