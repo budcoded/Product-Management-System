@@ -38,7 +38,12 @@ function LoginPage() {
 				alert(response.data);
 			} else {
 				// alert(response.data.name);
-				navigate("/admindashboard", {state: {data: response.data}});
+				if (response.data.role === "ADMIN") {
+					navigate("/admindashboard", {state: {data: response.data}});
+				} else {
+					navigate("/customerdashboard", {state: {data: response.data}});
+				}
+
 			}
 		} catch (error) {
 			console.log(error);

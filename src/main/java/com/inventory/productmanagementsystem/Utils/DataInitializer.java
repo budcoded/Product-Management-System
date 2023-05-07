@@ -12,10 +12,22 @@ import java.time.LocalDateTime;
 
 @Configuration
 public class DataInitializer {
-    /*@Bean
+    @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository) {
         return args -> {
-            // Creating admin user
+            /*// This config is used to create admin user only for the first time...
+            User admin = new User();
+            admin.setName("Admin");
+            admin.setEmail("Admin@iiitb.ac.in");
+            admin.setPassword("password");
+            admin.setAddress("Bangalore");
+            admin.setRole(UserRole.ADMIN);
+            admin.setMobileNumber(8887774441L);
+
+            userRepository.save(admin);*/
+
+            // This configuration was used to test all the CRUD API's...
+            /*// Creating admin user
             User admin = new User();
             admin.setName("Admin");
             admin.setEmail("Admin@iiitb.ac.in");
@@ -142,7 +154,7 @@ public class DataInitializer {
             customer.getOrderList().add(secondOrder);
 
             userRepository.save(admin);
-            userRepository.save(customer);
+            userRepository.save(customer);*/
         };
-    }*/
+    }
 }
