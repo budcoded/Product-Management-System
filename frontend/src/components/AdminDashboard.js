@@ -67,6 +67,7 @@ function AdminDashboard() {
 							<TableRow>
 								<TableCell style={{ width: '25%' , fontWeight:'bold' , fontSize: '18px'}}>Name</TableCell>
 								<TableCell style={{ width: '40%' , fontWeight:'bold', fontSize: '18px'}}>Description</TableCell>
+								<TableCell style={{ width: '15%' , fontWeight:'bold', fontSize: '18px'}}>Quantity</TableCell>
 								<TableCell style={{ width: '15%' , fontWeight:'bold', fontSize: '18px'}}>Category</TableCell>
 								<TableCell style={{ width: '10%' , fontWeight:'bold', fontSize: '18px'}}>Price</TableCell>
 								<TableCell style={{ width: '10%' , fontWeight:'bold', fontSize: '18px'}} align="right">Actions</TableCell>
@@ -77,6 +78,7 @@ function AdminDashboard() {
 								<TableRow key={product.id}>
 									<TableCell>{product.name}</TableCell>
 									<TableCell>{product.description}</TableCell>
+									<TableCell>{product.quantity}</TableCell>
 									<TableCell>{product.productCategory}</TableCell>
 									<TableCell>{product.price}</TableCell>
 									<TableCell align="right">

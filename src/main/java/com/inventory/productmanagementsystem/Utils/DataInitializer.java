@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Configuration
 public class DataInitializer {
-    @Bean
+    /*@Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository) {
         return args -> {
             // Creating admin user
@@ -144,5 +144,5 @@ public class DataInitializer {
             userRepository.save(admin);
             userRepository.save(customer);
         };
-    }
+    }*/
 }
