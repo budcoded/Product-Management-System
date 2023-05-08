@@ -1,41 +1,8 @@
-#services:
-#  frontend:
-#    image: budcoded/productmanagementsystemui:latest
-#    ports:
-#      - "3000:3000"
-#  backend:
-#    image: budcoded/productmanagementsystem:latest
-#    ports:
-#      - "1111:1111"
-#    depends_on:
-#      db:
-#        condition: service_healthy
-#    environment:
-#      - IP=172.16.128.197
-##      - IP=db
-#      - PORT=3308
-#      - MYSQL_ROOT_PASSWORD=password
-#  db:
-#    image: mysql
-#    healthcheck:
-#      test: ["CMD", "ls"]
-#    ports:
-#      - "3308:3306"
-#    volumes:
-#      - productmanagementsystem:/var/lib/mysql
-#    environment:
-#      MYSQL_ROOT_PASSWORD: "password"
-#volumes:
-#  productmanagementsystem:
-
 services:
   db:
     image: mysql
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      test: [ "CMD", "ls" ]
     environment:
       MYSQL_ROOT_PASSWORD: root_password
       MYSQL_DATABASE: product_management_system
