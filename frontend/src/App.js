@@ -8,7 +8,7 @@ import AdminDashboard from "./components/AdminDashboard";
 import AddProduct from "./components/addProduct";
 import EditProduct from "./components/EditProduct";
 import CustomerDashboard from "./components/CustomerDashboard";
-
+import CartSummary from "./components/CartSummary";
 function App() {
 	return (
 		<Routes>
@@ -18,9 +18,11 @@ function App() {
 			<Route path="/addproduct" element={<AddProduct/>}></Route>
 			<Route path="/editproduct/:id" element={<EditProduct/>}></Route>
 			<Route path="/customerdashboard" element={<CustomerDashboard/>}></Route>
+			<Route path="/cartsummary" element={<CartSummary/>}></Route>
 			<Route path="*" element={<NoMatch/>}></Route>
 		</Routes>
 	);
 }
 
 export default App;
+

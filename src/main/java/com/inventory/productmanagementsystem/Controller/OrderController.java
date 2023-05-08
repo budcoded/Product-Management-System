@@ -1,6 +1,7 @@
 package com.inventory.productmanagementsystem.Controller;
 
 import com.inventory.productmanagementsystem.Model.Order;
+import com.inventory.productmanagementsystem.Model.Product;
 import com.inventory.productmanagementsystem.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,11 @@ public class OrderController {
     @PostMapping("addOrder")
     public ResponseEntity<String> addOrder(@RequestBody Order order) {
         return orderService.addOrder(order);
+    }
+
+    @PostMapping("createOrder")
+    public ResponseEntity<String> addOrder(@RequestBody List<Product> list) {
+        return orderService.createOrder(list);
     }
 
     @DeleteMapping(path = "deleteOrder/{id}")

@@ -18,7 +18,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import "../css/CustomerDashboard.css";
 import CloseIcon from '@mui/icons-material/Close';
 import axios from "axios";
-
+import { useNavigate } from 'react-router-dom';
 
 function CustomerDashboard() {
 	const [products, setProducts] = useState([]);
@@ -49,6 +49,15 @@ function CustomerDashboard() {
 		}
 	};
 
+	const handleCartSummaryClick = () => {
+		console.log("Cart Summary Clicked");
+		console.log(cart);
+		navigate('/cartsummary', { state:  cart  });
+	};
+
+// ...
+
+	const navigate = useNavigate();
 	useEffect(() => {
 		fetchProducts();
 	}, []);
@@ -58,9 +67,6 @@ function CustomerDashboard() {
 			<AppBar>
 				<Toolbar>
 					<div style={{flexGrow: 1}}/>
-					{/*<IconButton  style={{color: '#fff'}}>*/}
-					{/*	<ShoppingCartIcon />*/}
-					{/*</IconButton>*/}
 					<IconButton onClick={handleDrawerOpen} style={{color: '#fff'}}>
 						<ShoppingCartIcon />
 					</IconButton>
@@ -78,7 +84,9 @@ function CustomerDashboard() {
 								</ListItem>
 							))}
 						</List>
-
+						<Button variant="contained" onClick={handleCartSummaryClick}>
+							Order Summary
+						</Button>
 					</Drawer>
 					<Button color="inherit" component={Link} to="/">
 						Logout
