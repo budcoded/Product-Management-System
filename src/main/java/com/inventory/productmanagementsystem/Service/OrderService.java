@@ -1,13 +1,17 @@
 package com.inventory.productmanagementsystem.Service;
 
+import com.inventory.productmanagementsystem.Exceptions.ResourceNotFoundException;
 import com.inventory.productmanagementsystem.Model.Order;
 import com.inventory.productmanagementsystem.Model.Product;
+import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Repository.OrderRepository;
+import com.inventory.productmanagementsystem.Repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.awt.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +19,12 @@ import java.util.List;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, UserRepository userRepository) {
         this.orderRepository = orderRepository;
+        this.userRepository = userRepository;
     }
 
     public List<Order> getOrders() {
@@ -43,11 +49,26 @@ public class OrderService {
         }
     }
 
-//    public ResponseEntity<String> createOrder (List<Product> list) {
-//        Order order = new Order();
-//        order.setProductList(new ArrayList<>());
-//        order.setCreatedAt(LocalDateTime.now());
-//    }
+    public ResponseEntity<String> createOrder (Long userId, List<Product> list) {
+        User user = this.userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("User", "Id", userId));
+        Order order = new Order();
+        order.setProductList(new ArrayList<>());
+        order.setCreatedAt(LocalDateTime.now());
+        order.getProductList().addAll(list);
+        order.setNoOfItems(order.getProductList().size());
+        double price = 0.0;
+        for (Product product : list) {
+            price += product.getPrice();
+        }
+        order.setUserId(user);
+        order.setTotalPrice(price);
+        Order savedOrder = orderRepository.save(order);
+        if (savedOrder.getNoOfItems().equals(order.getNoOfItems())) {
+            return ResponseEntity.ok("Order Successfully Created.");
+        } else {
+            return ResponseEntity.status(400).body("Error in Adding Order");
+        }
+    }
 
     public ResponseEntity<String> deleteOrder(Long id) {
         if (!orderRepository.existsById(id)) {

@@ -31,10 +31,10 @@ public class OrderController {
         return orderService.addOrder(order);
     }
 
-//    @PostMapping("createOrder")
-//    public ResponseEntity<String> addOrder(@RequestBody List<Product> list) {
-//        return orderService.createOrder(list);
-//    }
+    @PostMapping("createOrder/{userId}")
+    public ResponseEntity<String> createOrder(@PathVariable("userId") Long userId, @RequestBody List<Product> list) {
+        return orderService.createOrder(userId, list);
+    }
 
     @DeleteMapping(path = "deleteOrder/{id}")
     public ResponseEntity<String> deleteOrder(@PathVariable("id") Long orderId) {

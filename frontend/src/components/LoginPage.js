@@ -41,6 +41,7 @@ function LoginPage() {
 				if (response.data.role === "ADMIN") {
 					navigate("/admindashboard", {state: {data: response.data}});
 				} else {
+					localStorage.setItem("customerId", response.data.id);
 					navigate("/customerdashboard", {state: {data: response.data}});
 				}
 
