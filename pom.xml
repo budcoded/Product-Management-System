@@ -56,28 +56,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.5.0</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>repackage</goal>
                         </goals>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <mainClass>com.inventory.productmanagementsystem.ProductManagementSystemApplication</mainClass>
-                                </manifest>
-                            </archive>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
