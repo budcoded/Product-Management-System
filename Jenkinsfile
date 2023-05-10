@@ -14,15 +14,15 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh 'docker build -t kshitija/productmanagementsystem:latest .'
-                sh 'docker build -t kshitija/productmanagementsystemui:latest ./frontend'
+                sh 'docker build -t kshitijashah/productmanagementsystem:latest .'
+                sh 'docker build -t kshitijashah/productmanagementsystemui:latest ./frontend'
             }
         }
         stage ('Push Docker Image') {
             steps {
                 sh 'docker login -u kshitijashah -p kshitija@9991'
-                sh 'docker push kshitija/productmanagementsystem:latest'
-                sh 'docker push kshitija/productmanagementsystemui:latest'
+                sh 'docker push kshitijashah/productmanagementsystem:latest'
+                sh 'docker push kshitijashah/productmanagementsystemui:latest'
             }
         }
         stage ('Ansible Copy Docker-Compose File') {
