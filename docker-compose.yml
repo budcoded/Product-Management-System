@@ -9,9 +9,9 @@ services:
       MYSQL_USER: app_user
       MYSQL_PASSWORD: app_password
     volumes:
-      - myvol:/var/lib/mysql
+      - databaseVolume:/var/lib/mysql
     networks:
-      - app_network
+      - appNetwork
   backend:
     image: budcoded/productmanagementsystem:latest
     ports:
@@ -26,14 +26,17 @@ services:
       db:
         condition: service_healthy
     networks:
-      - app_network
+      - appNetwork
+    volumes:
+      - logsVolume:/logs
   frontend:
     image: budcoded/productmanagementsystemui:latest
     networks:
-      - app_network
+      - appNetwork
     ports:
       - "3000:3000"
 volumes:
-  myvol:
+  databaseVolume:
+  logsVolume:
 networks:
-  app_network:
+  appNetwork:
