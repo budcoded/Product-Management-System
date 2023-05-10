@@ -7,6 +7,5 @@ public enum ProductCategory {
     FASHION,
     ELECTRONICS,
     SPORTS,
-
     BOOKS,
 }

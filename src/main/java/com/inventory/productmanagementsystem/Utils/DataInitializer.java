@@ -1,10 +1,13 @@
 package com.inventory.productmanagementsystem.Utils;
 
+import com.inventory.productmanagementsystem.Controller.UserController;
 import com.inventory.productmanagementsystem.Model.User;
 import com.inventory.productmanagementsystem.Model.UserRole;
 import com.inventory.productmanagementsystem.Repository.OrderRepository;
 import com.inventory.productmanagementsystem.Repository.ProductRepository;
 import com.inventory.productmanagementsystem.Repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,10 +16,12 @@ import java.util.Optional;
 
 @Configuration
 public class DataInitializer {
+    private static final Logger logger = LoggerFactory.getLogger(DataInitializer.class);
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository, ProductRepository productRepository, OrderRepository orderRepository) {
         return args -> {
             // This config is used to create admin user only for the first time...
+            logger.info("At the start of the application creating an admin user.");
             User admin = new User();
             admin.setName("Admin");
             admin.setEmail("Admin@iiitb.ac.in");
@@ -26,8 +31,12 @@ public class DataInitializer {
             admin.setMobileNumber(8887774441L);
 
             Optional<User> optionalUser = userRepository.findUserByEmail(admin.getEmail());
-            if (optionalUser.isEmpty())
+            if (optionalUser.isEmpty()) {
+                logger.info("Creating admin user with name: " + admin.getName() + " and email id: " + admin.getEmail());
                 userRepository.save(admin);
+            } else {
+                logger.info("Admin user already exists with name: " + optionalUser.get().getName() + " and email id: " + optionalUser.get().getEmail());
+            }
 
             // This configuration was used to test all the CRUD API's...
             /*// Creating admin user
