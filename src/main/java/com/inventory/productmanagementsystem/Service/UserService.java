@@ -6,6 +6,7 @@ import com.inventory.productmanagementsystem.Repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -108,7 +109,7 @@ public class UserService {
                 return ResponseEntity.ok().body(user);
             } else {
                 logger.info("Incorrect password provided by the user.");
-                return ResponseEntity.status(HttpStatusCode.valueOf(401)).body(null);
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
             }
         }
     }

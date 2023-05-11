@@ -29,11 +29,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String description, Double price, Long quantity) {
+    public Product(String name, String description, Double price, Long quantity, ProductCategory productCategory) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.quantity = quantity;
+        this.productCategory = productCategory;
     }
 
     public Product(String name, String description, Double price, Long quantity, List<Order> orderList, ProductCategory productCategory) {

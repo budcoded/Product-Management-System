@@ -15,6 +15,10 @@ function CartSummary() {
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
     const handleCheckout = async () => {
+        if (totalPrice === 0) {
+            alert("No Item in cart");
+            return;
+        }
         try {
             console.log("At cart summary");
             // await sendOrderToBackend(cart);

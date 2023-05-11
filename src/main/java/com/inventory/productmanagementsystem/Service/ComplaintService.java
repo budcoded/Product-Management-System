@@ -40,7 +40,7 @@ public class ComplaintService {
         Complaint savedComplaint = complaintRepository.save(complaint);
         if (savedComplaint.getContent().equals(complaint.getContent())) {
             logger.info("Complaint registered successfully.");
-            return ResponseEntity.ok("Complaint Registered.");
+            return ResponseEntity.ok().body("Complaint Registered.");
         } else {
             logger.warn("Some error occurred while registering the complaint.");
             return ResponseEntity.status(400).body("Error in registering complaint.");
