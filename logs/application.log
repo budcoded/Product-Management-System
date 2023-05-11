@@ -1,0 +1,618 @@
+2023-05-11 19:29:15.841 [main] INFO  c.i.p.ProductManagementSystemApplication - Starting ProductManagementSystemApplication using Java 17.0.6 with PID 10675 (/media/DATA/projects/ProductManagementSystem/target/classes started by kshitija in /media/DATA/projects/ProductManagementSystem)
+2023-05-11 19:29:16.009 [main] INFO  c.i.p.ProductManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-11 19:29:31.022 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-11 19:29:31.150 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 88 ms. Found 4 JPA repository interfaces.
+2023-05-11 19:29:40.407 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1111 (http)
+2023-05-11 19:29:40.496 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1111"]
+2023-05-11 19:29:40.509 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 19:29:40.521 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-11 19:29:41.813 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 19:29:41.821 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 24852 ms
+2023-05-11 19:29:45.056 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-11 19:29:47.375 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-11 19:29:56.979 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:29:57.220 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:177)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:36)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:230)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:218)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:138)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1348)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1419)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+2023-05-11 19:29:57.680 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-11 19:29:57.732 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-11 19:30:29.149 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:30:29.152 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:30:29.153 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:30:29.155 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-11 19:30:29.837 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-11 19:30:30.916 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 16 common frames omitted
+Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:41)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:564)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:225)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:126)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:336)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1423)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2023-05-11 19:43:35.560 [main] INFO  c.i.p.ProductManagementSystemApplication - Starting ProductManagementSystemApplication using Java 17.0.6 with PID 11418 (/media/DATA/projects/ProductManagementSystem/target/classes started by kshitija in /media/DATA/projects/ProductManagementSystem)
+2023-05-11 19:43:35.591 [main] INFO  c.i.p.ProductManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-11 19:43:37.131 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-11 19:43:37.265 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 126 ms. Found 4 JPA repository interfaces.
+2023-05-11 19:43:38.240 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1111 (http)
+2023-05-11 19:43:38.259 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1111"]
+2023-05-11 19:43:38.261 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 19:43:38.261 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-11 19:43:38.591 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 19:43:38.595 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2797 ms
+2023-05-11 19:43:38.876 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-11 19:43:38.936 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-11 19:43:39.261 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:43:39.307 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:177)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:36)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:230)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:218)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:138)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1348)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1419)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+2023-05-11 19:43:39.347 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-11 19:43:39.350 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-11 19:43:40.505 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:43:40.513 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:43:40.514 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:43:40.519 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-11 19:43:40.573 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-11 19:43:40.588 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 16 common frames omitted
+Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:41)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:564)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:225)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:126)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:336)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1423)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2023-05-11 19:50:23.324 [main] INFO  c.i.p.ProductManagementSystemApplication - Starting ProductManagementSystemApplication using Java 17.0.6 with PID 11632 (/media/DATA/projects/ProductManagementSystem/target/classes started by kshitija in /media/DATA/projects/ProductManagementSystem)
+2023-05-11 19:50:23.333 [main] INFO  c.i.p.ProductManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-11 19:50:24.140 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-11 19:50:24.214 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 63 ms. Found 4 JPA repository interfaces.
+2023-05-11 19:50:24.708 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1111 (http)
+2023-05-11 19:50:24.716 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1111"]
+2023-05-11 19:50:24.717 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 19:50:24.717 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-11 19:50:24.811 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 19:50:24.811 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1381 ms
+2023-05-11 19:50:24.988 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-11 19:50:25.029 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-11 19:50:25.307 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:50:25.314 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:177)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:36)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:255)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:230)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:207)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:218)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:138)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1348)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1419)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+2023-05-11 19:50:25.329 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-11 19:50:25.331 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-11 19:50:26.282 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:50:26.292 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:50:26.293 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+2023-05-11 19:50:26.295 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2023-05-11 19:50:26.314 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-05-11 19:50:26.362 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1770)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:520)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1132)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:907)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1293)
+	at com.inventory.productmanagementsystem.ProductManagementSystemApplication.main(ProductManagementSystemApplication.java:13)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1816)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1766)
+	... 16 common frames omitted
+Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to not accept jdbcUrl, ${SPRING_DATASOURCE_URL}
+	at com.zaxxer.hikari.util.DriverDataSource.<init>(DriverDataSource.java:110)
+	at com.zaxxer.hikari.pool.PoolBase.initializeDataSource(PoolBase.java:326)
+	at com.zaxxer.hikari.pool.PoolBase.<init>(PoolBase.java:112)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:93)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:284)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:41)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:564)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:225)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:126)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:284)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:143)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:140)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:336)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1423)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 20 common frames omitted
+2023-05-11 19:54:07.575 [main] INFO  c.i.p.ProductManagementSystemApplication - Starting ProductManagementSystemApplication using Java 17.0.6 with PID 11859 (/media/DATA/projects/ProductManagementSystem/target/classes started by kshitija in /media/DATA/projects/ProductManagementSystem)
+2023-05-11 19:54:07.580 [main] INFO  c.i.p.ProductManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-11 19:54:08.326 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-11 19:54:08.389 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 4 JPA repository interfaces.
+2023-05-11 19:54:08.869 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1111 (http)
+2023-05-11 19:54:08.880 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1111"]
+2023-05-11 19:54:08.882 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 19:54:08.882 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-11 19:54:08.969 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 19:54:08.970 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1322 ms
+2023-05-11 19:54:09.166 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-11 19:54:09.215 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-11 19:54:09.464 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 19:54:14.199 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@cec590c
+2023-05-11 19:54:14.204 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-11 19:54:14.237 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-11 19:54:14.239 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-11 19:54:16.878 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-11 19:54:17.344 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-11 19:54:18.804 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-11 19:54:19.702 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1111"]
+2023-05-11 19:54:19.792 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1111 (http) with context path ''
+2023-05-11 19:54:19.810 [main] INFO  c.i.p.ProductManagementSystemApplication - Started ProductManagementSystemApplication in 12.845 seconds (process running for 14.447)
+2023-05-11 19:54:19.813 [main] INFO  c.i.p.Utils.DataInitializer - At the start of the application creating an admin user.
+2023-05-11 19:54:20.045 [main] INFO  c.i.p.Utils.DataInitializer - Admin user already exists with name: Admin and email id: Admin@iiitb.ac.in
+2023-05-11 19:55:02.428 [http-nio-1111-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 19:55:02.428 [http-nio-1111-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 19:55:02.431 [http-nio-1111-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-05-11 19:55:02.843 [http-nio-1111-exec-2] INFO  c.i.p.Controller.UserController - User is trying to login.
+2023-05-11 19:55:02.843 [http-nio-1111-exec-2] INFO  c.i.p.Service.UserService - User is trying to login with email: customer@iiitb.ac.in
+2023-05-11 19:55:02.850 [http-nio-1111-exec-2] INFO  c.i.p.Service.UserService - Email exists.
+2023-05-11 19:55:02.954 [http-nio-1111-exec-2] INFO  c.i.p.Controller.UserController - User logged in successfully.
+2023-05-11 19:55:04.174 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:55:04.175 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:55:05.278 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:55:05.279 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:56:01.778 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:56:01.779 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:59:24.497 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:59:24.556 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:59:24.707 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:59:24.708 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:59:41.347 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:59:41.348 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:59:41.393 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:59:41.393 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 19:59:56.291 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 19:59:56.292 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:00.189 [http-nio-1111-exec-4] INFO  c.i.p.Controller.OrderController - Customer with user id: 2 is placing an order.
+2023-05-11 20:00:00.192 [http-nio-1111-exec-4] INFO  c.i.p.Service.OrderService - User with id: 2 is placing an order.
+2023-05-11 20:00:01.837 [http-nio-1111-exec-4] INFO  c.i.p.Service.OrderService - Order successfully added.
+2023-05-11 20:00:01.909 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:01.909 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:01.963 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:01.964 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:25.319 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:25.319 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:27.424 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:27.424 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:27.478 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:27.479 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:42.326 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:42.328 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:42.390 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:42.391 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:00:56.807 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:00:56.807 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:05:38.433 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:05:38.434 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:08:18.783 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:08:18.784 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.002 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.003 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.056 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.057 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.265 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.265 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.295 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.297 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.506 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.507 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:44.550 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:44.551 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.182 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.184 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.228 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.228 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.452 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.452 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.483 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.483 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.664 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.665 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:12:45.715 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:12:45.715 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:06.303 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:06.306 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:06.679 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:06.680 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:07.075 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:07.075 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:37.336 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:37.336 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:38.824 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:38.824 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:55:38.852 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:55:38.852 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 20:57:55.826 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 20:57:56.259 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:00:53.469 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:00:53.470 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:00:56.009 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:00:56.009 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:00:56.055 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:00:56.056 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:18:11.286 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:18:11.287 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:18:11.395 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:18:11.396 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:22:15.563 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:22:15.564 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:22:15.621 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:22:15.623 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:23:52.951 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:23:52.952 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:23:53.001 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:23:53.001 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:01.845 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:01.846 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:01.933 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:01.933 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:41.896 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:41.931 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:51.999 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:52.004 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:53.740 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:53.741 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:24:53.758 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:24:53.758 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:27:56.101 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:27:56.102 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:28:02.792 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:28:02.792 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:28:02.806 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:28:02.807 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:29:07.577 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:29:07.579 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:29:38.926 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-11 21:29:39.233 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-05-11 21:29:39.311 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-05-11 21:30:07.875 [main] INFO  c.i.p.ProductManagementSystemApplication - Starting ProductManagementSystemApplication using Java 17.0.6 with PID 14263 (/media/DATA/projects/ProductManagementSystem/target/classes started by kshitija in /media/DATA/projects/ProductManagementSystem)
+2023-05-11 21:30:07.881 [main] INFO  c.i.p.ProductManagementSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2023-05-11 21:30:15.179 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-11 21:30:15.393 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 157 ms. Found 4 JPA repository interfaces.
+2023-05-11 21:30:17.725 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 1111 (http)
+2023-05-11 21:30:17.785 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-1111"]
+2023-05-11 21:30:17.786 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2023-05-11 21:30:17.787 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2023-05-11 21:30:18.548 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2023-05-11 21:30:18.551 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 10465 ms
+2023-05-11 21:30:19.137 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-11 21:30:19.560 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-11 21:30:21.909 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-05-11 21:30:25.009 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1657b017
+2023-05-11 21:30:25.012 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-05-11 21:30:25.096 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-05-11 21:30:25.099 [main] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2023-05-11 21:30:31.471 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-11 21:30:31.492 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-11 21:30:33.185 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-11 21:30:34.216 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-1111"]
+2023-05-11 21:30:34.384 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 1111 (http) with context path ''
+2023-05-11 21:30:34.411 [main] INFO  c.i.p.ProductManagementSystemApplication - Started ProductManagementSystemApplication in 28.237 seconds (process running for 33.153)
+2023-05-11 21:30:34.414 [main] INFO  c.i.p.Utils.DataInitializer - At the start of the application creating an admin user.
+2023-05-11 21:30:34.620 [main] INFO  c.i.p.Utils.DataInitializer - Admin user already exists with name: Admin and email id: Admin@iiitb.ac.in
+2023-05-11 21:31:12.248 [http-nio-1111-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-11 21:31:12.249 [http-nio-1111-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-05-11 21:31:12.250 [http-nio-1111-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2023-05-11 21:31:12.765 [http-nio-1111-exec-2] INFO  c.i.p.Controller.OrderController - Customer with user id: 2 is placing an order.
+2023-05-11 21:31:12.766 [http-nio-1111-exec-2] INFO  c.i.p.Service.OrderService - User with id: 2 is placing an order.
+2023-05-11 21:31:13.226 [http-nio-1111-exec-3] INFO  c.i.p.Controller.OrderController - Customer with user id: 2 is placing an order.
+2023-05-11 21:31:13.231 [http-nio-1111-exec-3] INFO  c.i.p.Service.OrderService - User with id: 2 is placing an order.
+2023-05-11 21:31:13.935 [http-nio-1111-exec-3] INFO  c.i.p.Service.OrderService - Order successfully added.
+2023-05-11 21:31:14.098 [http-nio-1111-exec-2] INFO  c.i.p.Service.OrderService - Order successfully added.
+2023-05-11 21:31:14.459 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:31:14.462 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:31:14.777 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:31:14.777 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:34.744 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:34.744 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:34.829 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:34.830 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:45.238 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:45.240 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:45.283 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:45.283 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:54.852 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:54.854 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:33:54.891 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:33:54.892 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:00.149 [http-nio-1111-exec-5] INFO  c.i.p.Controller.UserController - User is trying to login.
+2023-05-11 21:34:00.151 [http-nio-1111-exec-5] INFO  c.i.p.Service.UserService - User is trying to login with email: customer@iiitb.ac.in
+2023-05-11 21:34:00.163 [http-nio-1111-exec-5] INFO  c.i.p.Service.UserService - Email exists.
+2023-05-11 21:34:00.195 [http-nio-1111-exec-5] INFO  c.i.p.Controller.UserController - User logged in successfully.
+2023-05-11 21:34:00.310 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:00.311 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:00.356 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:00.357 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:28.363 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:28.363 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:28.432 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:28.433 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:39.424 [http-nio-1111-exec-10] INFO  c.i.p.Controller.OrderController - Customer with user id: 2 is placing an order.
+2023-05-11 21:34:39.430 [http-nio-1111-exec-10] INFO  c.i.p.Service.OrderService - User with id: 2 is placing an order.
+2023-05-11 21:34:39.543 [http-nio-1111-exec-10] INFO  c.i.p.Service.OrderService - Order successfully added.
+2023-05-11 21:34:39.671 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:39.671 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:39.731 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:39.731 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:48.321 [http-nio-1111-exec-2] INFO  c.i.p.Controller.OrderController - Customer with user id: 2 is placing an order.
+2023-05-11 21:34:48.321 [http-nio-1111-exec-2] INFO  c.i.p.Service.OrderService - User with id: 2 is placing an order.
+2023-05-11 21:34:48.485 [http-nio-1111-exec-2] INFO  c.i.p.Service.OrderService - Order successfully added.
+2023-05-11 21:34:48.576 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:48.577 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:34:48.623 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:34:48.624 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:36:18.427 [http-nio-1111-exec-8] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:36:18.428 [http-nio-1111-exec-8] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:36:18.522 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:36:18.523 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:37:36.484 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:37:36.485 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:37:42.827 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:37:42.836 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:37:49.831 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:37:49.832 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:37:53.607 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:37:53.610 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:37:59.434 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:37:59.434 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:38:04.242 [http-nio-1111-exec-6] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:38:04.242 [http-nio-1111-exec-6] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:40:28.983 [http-nio-1111-exec-9] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:40:28.984 [http-nio-1111-exec-9] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:40:31.824 [http-nio-1111-exec-1] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:40:31.825 [http-nio-1111-exec-1] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:40:31.893 [http-nio-1111-exec-10] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:40:31.914 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:41:17.898 [http-nio-1111-exec-3] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:41:17.898 [http-nio-1111-exec-3] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:41:19.743 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:41:19.750 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:41:19.817 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:41:19.818 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:41:47.846 [http-nio-1111-exec-5] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:41:47.846 [http-nio-1111-exec-5] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-11 21:41:47.952 [http-nio-1111-exec-7] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-11 21:41:47.953 [http-nio-1111-exec-7] INFO  c.i.p.Service.ProductService - Getting all the products.
