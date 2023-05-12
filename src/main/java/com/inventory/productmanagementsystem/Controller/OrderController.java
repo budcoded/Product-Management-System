@@ -42,18 +42,20 @@ public class OrderController {
 
     @PostMapping("createOrder/{userId}")
     public ResponseEntity<String> createOrder(@PathVariable("userId") Long userId, @RequestBody List<Product> list) {
-        Map<Product, Integer> map = new HashMap<>();
+        Map<Long, Integer> map = new HashMap<>();
+        Map<Long, Product> productMap = new HashMap<>();
         for (Product product : list) {
-            if (map.containsKey(product)) {
-                map.put(product, map.get(product) + 1);
+            if (map.containsKey(product.getId())) {
+                map.put(product.getId(), map.get(product.getId()) + 1);
             } else {
-                map.put(product, 1);
+                map.put(product.getId(), 1);
+                productMap.put(product.getId(), product);
             }
         }
-        for (Map.Entry<Product, Integer> entry : map.entrySet()) {
-            Product product = entry.getKey();
+        for (Map.Entry<Long, Integer> entry : map.entrySet()) {
+            Long productId = entry.getKey();
             int quantity = entry.getValue();
-            System.out.println(quantity);
+            Product product = productMap.get(productId);
             product.setQuantity(product.getQuantity() - quantity);
             productService.updateProduct(product.getId(), product);
         }
