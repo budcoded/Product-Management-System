@@ -1715,3 +1715,5 @@ Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to
 2023-05-13 22:19:38.831 [http-nio-1111-exec-10] INFO  c.i.p.Service.ProductService - Getting all the products.
 2023-05-13 22:19:38.893 [http-nio-1111-exec-2] INFO  c.i.p.Controller.ProductController - Getting all products.
 2023-05-13 22:19:38.894 [http-nio-1111-exec-2] INFO  c.i.p.Service.ProductService - Getting all the products.
+2023-05-14 01:24:48.298 [http-nio-1111-exec-4] INFO  c.i.p.Controller.ProductController - Getting all products.
+2023-05-14 01:24:48.626 [http-nio-1111-exec-4] INFO  c.i.p.Service.ProductService - Getting all the products.
