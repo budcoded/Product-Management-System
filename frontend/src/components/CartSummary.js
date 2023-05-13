@@ -45,6 +45,7 @@ function CartSummary() {
                     <TableRow>
                         <TableCell>Item</TableCell>
                         <TableCell>Price</TableCell>
+                        <TableCell>Quantity</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -52,6 +53,7 @@ function CartSummary() {
                         <TableRow key={item.id}>
                             <TableCell>{item.name}</TableCell>
                             <TableCell>{item.price}</TableCell>
+                            <TableCell>{}</TableCell>
                         </TableRow>
                     ))}
                     <TableRow>
