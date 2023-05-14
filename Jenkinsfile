@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('Git Pull') {
             steps {
-                git url: 'https://github.com/Kshitijashah25/Product-Management-System.git',
+                git url: 'https://github.com/budcoded/Product-Management-System.git',
                 branch: 'master'
             }
         }
