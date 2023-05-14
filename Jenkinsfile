@@ -25,7 +25,7 @@ pipeline {
 //                 sh 'docker login -u kshitijashah -p kshitija@9991'
 //                 sh 'docker push kshitijashah/productmanagementsystem:latest'
 //                 sh 'docker push kshitijashah/productmanagementsystemui:latest'
-                sh 'docker login -u budcoded -p budcoded'
+                sh 'docker login -u budcoded -p budcodedbudcoded'
                 sh 'docker push budcoded/productmanagementsystem:latest'
                 sh 'docker push budcoded/productmanagementsystemui:latest'
             }
